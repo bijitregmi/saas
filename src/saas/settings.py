@@ -141,6 +141,20 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
+STATICFILES_BASE_DIR = BASE_DIR / 'staticfiles/'
+
+STATICFILES_VENDORS_DIR = STATICFILES_BASE_DIR / 'vendors/'
+
+# Check for static files
+
+STATICFILES_DIRS = [
+    STATICFILES_BASE_DIR,
+]
+
+# Set static files root
+
+STATIC_ROOT = BASE_DIR / 'local-cdn'
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
