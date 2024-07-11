@@ -24,7 +24,6 @@ SECRET_KEY = config("DJANGO_SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = config("DJANGO_DEBUG", cast=bool)
-print("DEBUG", DEBUG, type(DEBUG))
 
 ALLOWED_HOSTS = [
     ".railway.app",
@@ -49,6 +48,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     # my apps
     'visits',
+    'commando',
 ]
 
 MIDDLEWARE = [
@@ -93,7 +93,7 @@ DATABASES = {
 }
 
 CONN_MAX_AGE = config("CONN_MAX_AGE", cast=int, default=30)
-DATABASE_URL = config("DATABASE_URL", cast=str)
+DATABASE_URL = config("DATABASE_URL", default=None)
 
 if DATABASE_URL is not None:
     import dj_database_url
@@ -143,6 +143,8 @@ STATIC_URL = 'static/'
 
 STATICFILES_BASE_DIR = BASE_DIR / 'staticfiles/'
 
+STATICFILES_BASE_DIR.mkdir(exist_ok=True, parents=True)
+
 STATICFILES_VENDORS_DIR = STATICFILES_BASE_DIR / 'vendors/'
 
 # Check for static files
@@ -153,7 +155,7 @@ STATICFILES_DIRS = [
 
 # Set static files root
 
-STATIC_ROOT = BASE_DIR / 'local-cdn'
+STATIC_ROOT = BASE_DIR / 'local-cdn/'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
