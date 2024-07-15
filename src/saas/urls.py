@@ -18,9 +18,12 @@ from django.contrib import admin
 from django.urls import path
 
 from .views import home_page, about_page
+from auth.views import login_view, register_view
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', home_page),
     path('about/', about_page),
+    path('login/', login_view, name='login'),
+    path('register', register_view, name='register')
 ]
