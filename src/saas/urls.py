@@ -22,8 +22,8 @@ from auth.views import login_view, register_view
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', home_page),
-    path('about/', about_page),
+    path('', home_page, name='home'),
+    path('about/', about_page, name='about'),
     path('login/', login_view, name='login'),
     path('register', register_view, name='register'),
     path('accounts/', include('allauth.urls')),
