@@ -4,11 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     {% include 'base/css.html' %}
-    <title>{% block title %}Saas{% endblock %}</title>
+    <title>Saas - {% block title %}{% endblock %}</title>
 </head>
 <body>
     {% include 'nav/navbar.html' %}
-    {% block content %}
     {% if messages %}
         {% for message in messages %}
             <div role="alert" class="text-sm md:text-base alert alert-{{ message.tags }}">
@@ -16,10 +15,7 @@
             </div>
         {% endfor %}
     {% endif %}
-    <h1 class="mb-4 text-4xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl dark:text-white">{{ page_title }}</h1>
-    <p>Current page visits: {{ current_page_visits }}</p>
-    <p>Total page visits: {{ total_page_visits }}</p>
-    <p>User is authenticated: {{ request.user.is_authenticated }}</p>
+    {% block content %}
     {% endblock %}
     {% include 'base/js.html' %}
 

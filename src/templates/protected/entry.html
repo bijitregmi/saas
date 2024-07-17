@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block title %}Protected entry{% endblock %}
+
+{% block content %}
+
+<form action="{% url 'protected_entry' %}" method="POST">
+    {% csrf_token %}
+    <label for="code">Code: </label>
+    <input type="password" id="code" name="code" placeholder="Enter the code">
+    <button>Submit</button>
+</form>
+{% endblock %}
