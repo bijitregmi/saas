@@ -56,10 +56,9 @@ if DEBUG:
         "localhost",
     ]
 
-if not DEBUG:
-    CSRF_TRUSTED_ORIGINS = [
-        "saas-production-254f.up.railway.app",
-        ]
+CSRF_TRUSTED_ORIGINS = [
+    "https://saas-production-254f.up.railway.app/",
+    ]
 # Application definition
 
 INSTALLED_APPS = [
