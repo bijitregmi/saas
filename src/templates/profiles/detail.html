@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block title %}User{% endblock %}
+
+{% block content %}
+
+<h1 class="mb-4 text-4xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl dark:text-white">{{instance.username}}</h1>
+{% if perms.auth.view_user or owner %}
+<div>
+    <p>{{instance.first_name}} {{instance.last_name}}</p>
+    <p>{{instance.last_login}}</p>
+</div>
+{% else %}
+<p>You are not allowed to view this user</p>
+{% endif %}
+{% endblock %}
