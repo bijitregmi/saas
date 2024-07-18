@@ -57,7 +57,7 @@ if DEBUG:
     ]
 
 CSRF_TRUSTED_ORIGINS = [
-    "https://saas-production-254f.up.railway.app/",
+    "https://saas-production-254f.up.railway.app/*",
     ]
 # Application definition
 
