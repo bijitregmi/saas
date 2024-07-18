@@ -56,7 +56,10 @@ if DEBUG:
         "localhost",
     ]
 
-
+if not DEBUG:
+    CSRF_TRUSTED_ORIGINS = [
+        ".railway.app",
+        ]
 # Application definition
 
 INSTALLED_APPS = [
