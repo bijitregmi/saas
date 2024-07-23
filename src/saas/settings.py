@@ -59,6 +59,11 @@ if DEBUG:
 CSRF_TRUSTED_ORIGINS = [
     "https://saas-production-254f.up.railway.app/*",
     ]
+
+SESSION_EXPIRE_AT_BROWSER_CLOSE = True
+
+ALLOW_CUSTOM_GROUPS = True
+
 # Application definition
 
 INSTALLED_APPS = [
